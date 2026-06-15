@@ -1,0 +1,112 @@
+﻿<Window x:Class="Demex3.PageProducts"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Demex3"
+        mc:Ignorable="d"
+        Title="Товары" Height="600" Width="900" ResizeMode="NoResize" Icon="/Icon.png">
+    <Grid>
+        <ListBox x:Name="ListProducts" Margin="0,50,0,50" HorizontalContentAlignment="Stretch" MouseUp="click_EditProduct">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="130"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Column="0" Margin="0,5,5,5" BorderBrush="Black" BorderThickness="1" VerticalAlignment="Stretch">
+                                <Image Source="{Binding image_path, Mode=OneWay}" Stretch="Uniform"/>
+                            </Border>
+
+                            <Border Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="5,5,0,5" HorizontalAlignment="Stretch">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding isAvailable}" Value="false">
+                                                <Setter Property="Background" Value="#FF5EB1FD"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                                <StackPanel Margin="5">
+                                    <TextBlock FontWeight="Bold" TextWrapping="Wrap">
+                                        <Run Text="{Binding C_categories.name, Mode=OneWay}"/>
+                                        <Run Text=" | "/>
+                                        <Run Text="{Binding name, Mode=OneWay}"/>
+                                    </TextBlock>
+
+                                    <TextBlock>
+                                        <Run Text="Описание товара: "/>
+                                        <Run Text="{Binding description, Mode=OneWay}"/>
+                                    </TextBlock>
+
+                                    <TextBlock>
+                                        <Run Text="Производитель: "/>
+                                        <Run Text="{Binding C_manufacturers.name, Mode=OneWay}"/>
+                                    </TextBlock>
+
+                                    <TextBlock>
+                                        <Run Text="Поставщик: "/>
+                                        <Run Text="{Binding C_providers.name, Mode=OneWay}"/>
+                                    </TextBlock>
+
+                                    <TextBlock>
+                                        <Run Text="Цена: "/>
+                                        <Run Text="{Binding price, Mode=OneWay}" TextDecorations="Strikethrough" Foreground="Red"/>
+                                        <Run Text=" "/>
+                                        <Run Text="{Binding total_price, Mode=OneWay}"/>
+                                    </TextBlock>
+
+                                    <TextBlock>
+                                        <Run Text="Количество на складе: "/>
+                                        <Run Text="{Binding count, Mode=OneWay}"/>
+                                    </TextBlock>
+                                </StackPanel>
+                            </Border>
+
+                            <Border Grid.Column="2" Margin="0,5,5,5" HorizontalAlignment="Right" BorderBrush="Black" BorderThickness="1" VerticalAlignment="Stretch">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding isDiscountHighEnough}" Value="true">
+                                                <Setter Property="Background" Value="#2E8B57"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                                <StackPanel Margin="5,5,5,5" VerticalAlignment="Center">
+                                    <TextBlock Text="Действующая" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="скидка" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{Binding discount, StringFormat={}{0}%, Mode=OneWay}" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        
+        <TextBox x:Name="tb_Search" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="20,20,0,0" Height="20" TextChanged="SearchChanged"/>
+        <Label x:Name="lb_Search" Content="Поиск" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,0,0,0"/>
+        <ComboBox x:Name="cb_Sort" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="200,20,0,0" SelectionChanged="SortChanged" SelectedIndex="0">
+            <ComboBoxItem Content="Сортировка"/>
+            <ComboBoxItem Content="Цена (по возрастанию)"/>
+            <ComboBoxItem Content="Скидка (по возрастанию)"/>
+            <ComboBoxItem Content="Цена (по убыванию)"/>
+            <ComboBoxItem Content="Скидка (по убыванию)"/>
+        </ComboBox>
+        <ComboBox x:Name="cb_Filter" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="400,20,0,0" Width="150" SelectionChanged="FilterChanged"/>
+        <Button x:Name="bt_DeleteProduct" Content="Удалить товар" HorizontalAlignment="Left" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Margin="20,0,0,20" Width="150" Height="20" Click="click_DeleteProduct"/>
+        <Label x:Name="lb_UserFIO" Content="Label" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,20,0" FontSize="16" FontWeight="Bold"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="990,268,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="bt_Back" Content="Назад" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20" Width="60" Height="20" Click="click_Close"/>
+        <Button x:Name="bt_AddProduct" Content="Добавить товар" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="200,0,0,20" Width="120" Height="20" Click="click_AddProduct"/>
+        <Button x:Name="bt_Orders" Content="Заказы" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,100,20" Height="20" Width="70" Click="click_Orders"/>
+
+    </Grid>
+</Window>

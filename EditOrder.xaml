@@ -1,0 +1,29 @@
+﻿<Window x:Class="Demex3.EditOrder"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Demex3"
+        mc:Ignorable="d"
+        Title="EditOrder" Height="378" Width="400">
+    <Grid>
+        <TextBox x:Name="tb_OrderID" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="80" Margin="120,40,0,0"/>
+
+        <DatePicker x:Name="dp_DateOrdered" Width="120" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,160,0,0"/>
+        <DatePicker x:Name="dp_DateRecieved" Width="120" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,200,0,0"/>
+        <Label x:Name="lb_OrderID" Content="Артикул" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,35,0,0"/>
+        <Label Content="Статус" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,75,0,0"/>
+        <Label Content="Адрес доставки" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,115,0,0"/>
+        <Label Content="Дата заказа" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,163,0,0"/>
+        <Label Content="Дата доставки" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,200,0,0"/>
+        <Button x:Name="bt_Back" Content="Назад" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20" Height="20" Width="40" Click="click_Back"/>
+        <Button x:Name="bt_SaveChanges" Content="Сохранить" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,20" Width="80" Height="20" Click="click_SaveChanges"/>
+        <ComboBox x:Name="cb_OrderStatus" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="20" Margin="120,80,0,0"
+                  DisplayMemberPath="name"
+                  SelectedValuePath="ID_status"/>
+        <ComboBox x:Name="cb_PVZ"  Width="246" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,120,0,0"
+                  DisplayMemberPath="info"
+                  SelectedValuePath="ID_PVZ"/>
+
+    </Grid>
+</Window>

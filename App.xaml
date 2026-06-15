@@ -1,0 +1,10 @@
+﻿<Application x:Class="Demex3.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Demex3"
+             StartupUri="AuthWindow.xaml"
+             ShutdownMode="OnLastWindowClose">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>

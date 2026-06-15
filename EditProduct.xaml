@@ -1,0 +1,39 @@
+﻿<Window x:Class="Demex3.EditProduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Demex3"
+        mc:Ignorable="d"
+        Title="Title" Height="420" Width="600" Icon="/Icon.png" ResizeMode="NoResize">
+    <Grid>
+        <Button x:Name="bt_Close" Content="Назад" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,100,20" Click="click_Close"/>
+        <Button x:Name="bt_Save" Content="Сохранить" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20" Click="click_SaveChanges"/>
+        <TextBox x:Name="tb_article" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="140,40,0,0"/>
+        <TextBox x:Name="tb_name" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="140,80,0,0"/>
+        <TextBox x:Name="tb_price" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="140,120,0,0"/>
+        <ComboBox x:Name="cb_provider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="140,160,0,0"
+                  SelectedValuePath="ID_provider"
+                  DisplayMemberPath="name"/>
+        <ComboBox x:Name="cb_manufacturer" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="140,200,0,0"
+                  SelectedValuePath="ID_manufacturer"
+                  DisplayMemberPath="name"/>
+        <ComboBox x:Name="cb_category" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="140,240,0,0"
+                  SelectedValuePath="ID_category"
+                  DisplayMemberPath="name"/>
+        <TextBox x:Name="tb_discount" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="140,280,0,0"/>
+        <TextBox x:Name="tb_count" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="140,320,0,0"/>
+        <TextBox x:Name="tb_description" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Margin="320,80,0,0" Height="100"/>
+        <Label Content="Артикул" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,35,0,0"/>
+        <Label Content="Наименование" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,75,0,0"/>
+        <Label Content="Стоимость" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,115,0,0"/>
+        <Label Content="Поставщик" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,155,0,0"/>
+        <Label Content="Производитель" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,195,0,0"/>
+        <Label Content="Категория" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,235,0,0"/>
+        <Label Content="Скидка" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,275,0,0"/>
+        <Label Content="Количество на складе" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,315,0,0"/>
+        <Label Content="Описание" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="320,35,0,0"/>
+        <Image x:Name="_image" HorizontalAlignment="Right" Height="140" VerticalAlignment="Bottom" Width="140" Margin="0,0,60,60"/>
+
+    </Grid>
+</Window>

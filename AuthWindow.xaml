@@ -1,0 +1,19 @@
+﻿<Window x:Class="Demex3.AuthWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Demex3"
+        mc:Ignorable="d"
+        Title="Авторизация" Height="450" Width="800" ResizeMode="NoResize" Icon="/Icon.png">
+    <Grid>
+
+        <TextBox x:Name="tb_Login" HorizontalAlignment="Center" TextWrapping="Wrap" Width="120" VerticalAlignment="Center" Margin="0,-100,0,0"/>
+        <PasswordBox x:Name="pb_Password" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120"/>
+        <Label Content="Логин" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-80,-140,0,0"/>
+        <Label Content="Пароль" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-80,-40,0,0"/>
+        <Button x:Name="bt_LoginUser" Content="Войти" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,100,0,0" Width="90" Height="30" Click="Click_LoginAsUser"/>
+        <Button x:Name="bt_LoginGuest" Content="Гость" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,180,0,0" Width="60" Height="20" Click="Click_LoginAsGuest"/>
+
+    </Grid>
+</Window>
